@@ -10,7 +10,7 @@
 }
 
 @utility heading-1 {
-	@apply text-5xl leading-[48px] font-medium;
+	@apply text-[32px] leading-[36px] md:text-5xl md:leading-[48px] font-medium;
 }
 
 @utility heading-2 {
@@ -21,14 +21,14 @@
 	@apply text-xl leading-[26px] font-medium tracking-[5px];
 }
 
-@utility body {
-	@apply text-base leading-[26px];
+@utility body-text {
+	@apply text-[15px] leading-[25px] md:text-base md:leading-[26px];
 }
 
 @utility btn-primary {
-	@apply bg-primary font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer transition-all hover:bg-primary-light;
+	@apply bg-primary font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer uppercase transition-all hover:bg-primary-light;
 }
 
 @utility btn-white {
-	@apply bg-white font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer transition-all hover:bg-primary-light;
+	@apply bg-white font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer uppercase transition-all hover:bg-primary-light;
 }
