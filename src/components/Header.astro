@@ -4,14 +4,92 @@ import { Icon } from "astro-icon/components"
 import logo from "@/assets/designo-logo-dark.svg"
 ---
 
-<!-- Our Company
-Locations
-Contact -->
-<header class="px-6 py-8">
-	<nav class="flex justify-between items-center">
+<header class="px-6 py-8 bg-white relative z-30">
+	<div class="flex justify-between items-center">
 		<a href="/">
 			<Image src={logo} alt="Designo logo" />
 		</a>
-		<Icon name="hamburger" />
-	</nav>
+		<button id="menuToggle" class="lg:hidden" aria-label="Toggle menu">
+			<Icon name="hamburger" class="block" id="hamburgerIcon" />
+			<Icon name="close" class="hidden" id="closeIcon" />
+		</button>
+	</div>
 </header>
+<div
+	id="mobileMenuPanel"
+	class="bg-black/50 fixed top-[91px] left-0 h-[calc(100%-91px)] w-full z-20 hidden opacity-0 transition-opacity duration-300">
+	<div
+		class="bg-black text-white py-12 transform -translate-y-full transition-transform duration-300"
+		id="menuContent">
+		<ul class="flex flex-col px-6 gap-8 text-2xl uppercase tracking-[2px]">
+			<li><a href="/about" class="block py-2">Our Company</a></li>
+			<li><a href="/locations" class="block py-2">Locations</a></li>
+			<li><a href="/contact" class="block py-2">Contact</a></li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		// Get DOM elements
+		const menuToggle = document.getElementById("menuToggle")!
+		const hamburgerIcon = document.getElementById("hamburgerIcon")!
+		const closeIcon = document.getElementById("closeIcon")!
+		const mobileMenuPanel = document.getElementById("mobileMenuPanel")!
+		const menuContent = document.getElementById("menuContent")!
+
+		// Function to open menu
+		function openMenu() {
+			// Show overlay
+			mobileMenuPanel.classList.remove("hidden")
+			// Trigger animations after a small delay to ensure the display change has taken effect
+			setTimeout(() => {
+				mobileMenuPanel.classList.remove("opacity-0")
+				menuContent.classList.remove("-translate-y-full")
+				// Prevent body scrolling
+				document.body.style.overflow = "hidden"
+			}, 10)
+
+			// Switch icons
+			hamburgerIcon.classList.add("hidden")
+			hamburgerIcon.classList.remove("block")
+			closeIcon.classList.add("block")
+			closeIcon.classList.remove("hidden")
+		}
+
+		// Function to close menu
+		function closeMenu() {
+			// Trigger animations
+			mobileMenuPanel.classList.add("opacity-0")
+			menuContent.classList.add("-translate-y-full")
+
+			// Wait for animations to complete before hiding the menu
+			setTimeout(() => {
+				mobileMenuPanel.classList.add("hidden")
+				// Allow body scrolling
+				document.body.style.overflow = ""
+			}, 300)
+
+			// Switch icons
+			hamburgerIcon.classList.remove("hidden")
+			hamburgerIcon.classList.add("block")
+			closeIcon.classList.remove("block")
+			closeIcon.classList.add("hidden")
+		}
+
+		// Toggle menu on button click
+		menuToggle.addEventListener("click", () => {
+			if (mobileMenuPanel.classList.contains("hidden")) {
+				openMenu()
+			} else {
+				closeMenu()
+			}
+		})
+
+		// Close menu when clicking on links
+		const menuLinks = mobileMenuPanel.querySelectorAll("a")
+		menuLinks.forEach((link) => {
+			link.addEventListener("click", closeMenu)
+		})
+	})
+</script>
