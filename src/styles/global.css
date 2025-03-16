@@ -14,11 +14,11 @@
 }
 
 @utility heading-2 {
-	@apply text-[40px] leading-[48px] font-medium tracking-[2px];
+	@apply text-[28px] leading-[36px] tracking-[1.4px] md:text-[40px] md:leading-[48px] font-medium md:tracking-[2px];
 }
 
 @utility heading-3 {
-	@apply text-xl leading-[26px] font-medium tracking-[5px];
+	@apply text-[15px] md:text-xl md:leading-[26px] font-medium tracking-[5px];
 }
 
 @utility body-text {

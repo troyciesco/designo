@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components"
+import { Image } from "astro:assets"
+import webDesignImage from "@/assets/image-web-design.jpg"
+import appDesignImage from "@/assets/image-app-design.jpg"
+import graphicDesignImage from "@/assets/image-graphic-design.jpg"
+const cards = [
+	{
+		title: "Web Design",
+		href: "/web-design",
+		image: webDesignImage
+	},
+	{
+		title: "App Design",
+		href: "/app-design",
+		image: appDesignImage
+	},
+	{
+		title: "Graphic Design",
+		href: "/graphic-design",
+		image: graphicDesignImage
+	}
+]
+---
+
+<section class="py-30 px-6">
+	<div class="grid gap-6">
+		{
+			cards.map((card) => (
+				<a
+					href={card.href}
+					class="w-full rounded-2xl text-white relative py-[90px] group">
+					<div class="flex flex-col items-center justify-center relative z-20">
+						<h2 class="heading-2 uppercase mb-3">{card.title}</h2>
+						<span class="heading-3 uppercase flex items-center gap-4">
+							View Projects <Icon name="carat-right" />
+						</span>
+					</div>
+					<div class="bg-black/60 absolute w-full h-full top-0 z-10 rounded-2xl transition-all group-hover:bg-primary/50" />
+					<Image
+						src={card.image}
+						alt=""
+						class="absolute w-full h-full top-0 rounded-2xl object-cover"
+					/>
+				</a>
+			))
+		}
+	</div>
+</section>
