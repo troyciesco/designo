@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+	--color-primary: oklch(71.03% 0.1305 33.21);
+	--color-primary-light: oklch(82.25% 0.100474 32.9018);
+	--color-black: oklch(22.84% 0.0041 308.26);
+	--color-dark-grey: oklch(31.71% 0.0092 303.93);
+	--color-light-grey: oklch(96.32% 0.0034 247.86);
+	--font-sans: "Jost Variable", sans-serif;
+}
+
+@utility heading-1 {
+	@apply text-5xl leading-[48px] font-medium;
+}
+
+@utility heading-2 {
+	@apply text-[40px] leading-[48px] font-medium tracking-[2px];
+}
+
+@utility heading-3 {
+	@apply text-xl leading-[26px] font-medium tracking-[5px];
+}
+
+@utility body {
+	@apply text-base leading-[26px];
+}
+
+@utility btn-primary {
+	@apply bg-primary font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer transition-all hover:bg-primary-light;
+}
+
+@utility btn-white {
+	@apply bg-white font-medium text-[15px] tracking-[1px] rounded-lg py-4 px-6 cursor-pointer transition-all hover:bg-primary-light;
+}

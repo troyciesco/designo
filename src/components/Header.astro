@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+import logo from "@/assets/designo-logo-dark.svg"
+---
+
+<header class="px-6 py-8">
+	<nav class="flex justify-between items-center">
+		<a href="/">
+			<Image src={logo} alt="Designo logo" />
+		</a>
+		<Icon name="hamburger" />
+	</nav>
+</header>
