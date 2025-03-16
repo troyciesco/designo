@@ -1,0 +1,64 @@
+---
+import passionate from "@/assets/illustration-passionate.svg"
+import resourceful from "@/assets/illustration-resourceful.svg"
+import friendly from "@/assets/illustration-friendly.svg"
+import smallCircle from "@/assets/bg-pattern-small-circle.svg"
+import { Image } from "astro:assets"
+
+const qualities = [
+	{
+		title: "Passionate",
+		description:
+			"Each project starts with an in-depth brand research to ensure we only create products that serve a purpose. We merge art, design, and technology into exciting new solutions.",
+		image: {
+			src: passionate,
+			alt: "drawing of a person in a hoodie drawing on a tablet"
+		}
+	},
+	{
+		title: "Resourceful",
+		description:
+			"Everything that we do has a strategic purpose. We use an agile approach in all of our projects and value customer collaboration. It guarantees superior results that fulfill our clients' needs.",
+		image: {
+			src: resourceful,
+			alt: "drawing of a person in a hoodie drawing on a tablet"
+		}
+	},
+	{
+		title: "Friendly",
+		description:
+			"We are a group of enthusiastic folks who know how to put people first. Our success depends on our customers, and we strive to give them the best experience a company can provide.",
+		image: {
+			src: friendly,
+			alt: "drawing of two people holding up a poster"
+		}
+	}
+]
+---
+
+<section class="py-[60px] px-6">
+	<div class="flex flex-col gap-20">
+		{
+			qualities.map((quality) => (
+				<div class="text-center">
+					<div class="relative">
+						<Image
+							src={quality.image.src}
+							alt={quality.image.alt}
+							class="mx-auto mb-6 relative z-10"
+						/>
+						<Image
+							src={smallCircle}
+							alt=""
+							class="absolute top-0 left-1/2 -translate-x-1/2"
+						/>
+					</div>
+					<h2 class="text-xl leading-[26px] font-medium tracking-[5px] uppercase mb-8">
+						{quality.title}
+					</h2>
+					<p class="text-base leading-[26px]">{quality.description}</p>
+				</div>
+			))
+		}
+	</div>
+</section>
