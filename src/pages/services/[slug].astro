@@ -1,17 +1,41 @@
 ---
+import ServiceHero from "@/components/ServiceHero.astro"
+import ServiceProjects from "@/components/ServiceProjects.astro"
 import Layout from "@/layouts/Layout.astro"
 
 export function getStaticPaths() {
 	return [
-		{ params: { slug: "web-design" }, props: { title: "Web Design" } },
-		{ params: { slug: "app-design" }, props: { title: "App Design" } },
-		{ params: { slug: "graphic-design" }, props: { title: "Graphic Design" } }
+		{
+			params: { slug: "web-design" },
+			props: {
+				title: "Web Design",
+				description:
+					"We build websites that serve as powerful marketing tools and bring memorable brand experiences."
+			}
+		},
+		{
+			params: { slug: "app-design" },
+			props: {
+				title: "App Design",
+				description:
+					"Our mobile designs bring intuitive digital solutions to your customers right at their fingertips."
+			}
+		},
+		{
+			params: { slug: "graphic-design" },
+			props: {
+				title: "Graphic Design",
+				description:
+					"We deliver eye-catching branding materials that are tailored to meet your business objectives."
+			}
+		}
 	]
 }
 
-const { title } = Astro.props
+const { title, description } = Astro.props
 ---
 
 <Layout>
-	<h1>{title}</h1>
+	<ServiceHero title={title} description={description} />
+	<ServiceProjects />
 </Layout>
