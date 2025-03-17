@@ -1,0 +1,38 @@
+---
+import bgPattern from "@/assets/bg-pattern-hero-home.svg"
+import realDealImg from "@/assets/image-real-deal.jpg"
+import { Image } from "astro:assets"
+---
+
+<section class="pb-[120px]">
+	<Image
+		src={realDealImg}
+		alt="Hands in white sleeves pinning photographs to a wall, shown in close-up."
+	/>
+	<div class="bg-[#FDF3F0] relative overflow-hidden">
+		<div class="relative z-10 px-6">
+			<div class="flex flex-col items-center py-20">
+				<h2 class="heading-1 text-center text-balance mb-6 text-primary">
+					The real deal
+				</h2>
+				<p class="text-center body-text mb-8">
+					As strategic partners in our clients' businesses, we are ready to take
+					on any challenge as our own. Solving real problems require empathy and
+					collaboration, and we strive to bring a fresh perspective to every
+					opportunity. We make design and technology more accessible and give
+					you tools to measure success.
+				</p>
+				<p class="text-center body-text">
+					We are visual storytellers in appealing and captivating ways. By
+					combining business and marketing strategies, we inspire audiences to
+					take action and drive real results.
+				</p>
+			</div>
+		</div>
+		<Image
+			src={bgPattern}
+			alt=""
+			class="absolute -top-52 rotate-180 -right-12 opacity-35"
+		/>
+	</div>
+</section>

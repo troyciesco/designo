@@ -1,0 +1,63 @@
+---
+import canada from "@/assets/illustration-canada.svg"
+import australia from "@/assets/illustration-australia.svg"
+import unitedKingdom from "@/assets/illustration-united-kingdom.svg"
+import smallCircle from "@/assets/bg-pattern-small-circle.svg"
+import { Image } from "astro:assets"
+
+const locations = [
+	{
+		title: "Canada",
+		href: "/locations#canada",
+		image: {
+			src: canada,
+			alt: "drawing of a person in a hoodie drawing on a tablet"
+		}
+	},
+	{
+		title: "Australia",
+		href: "/locations#australia",
+		image: {
+			src: australia,
+			alt: "drawing of a person in a hoodie drawing on a tablet"
+		}
+	},
+	{
+		title: "United Kingdom",
+		href: "/locations#uk",
+		image: {
+			src: unitedKingdom,
+			alt: "drawing of two people holding up a poster"
+		}
+	}
+]
+---
+
+<section class="py-[60px] px-6">
+	<div class="flex flex-col gap-20">
+		{
+			locations.map((location) => (
+				<div class="text-center">
+					<div class="relative mb-8">
+						<Image
+							src={location.image.src}
+							alt={location.image.alt}
+							class="mx-auto mb-6 relative z-10"
+						/>
+						<Image
+							src={smallCircle}
+							alt=""
+							class="absolute top-0 left-1/2 -translate-x-1/2"
+						/>
+					</div>
+					<h2 class="text-xl leading-[26px] font-medium tracking-[5px] uppercase mb-8">
+						{location.title}
+					</h2>
+					<a href={location.href} class="btn-primary text-white">
+						See Location
+					</a>
+				</div>
+			))
+		}
+	</div>
+</section>

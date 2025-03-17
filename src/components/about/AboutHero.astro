@@ -1,0 +1,35 @@
+---
+import bgPattern from "@/assets/bg-pattern-hero-home.svg"
+import heroImg from "@/assets/image-about-hero.jpg"
+import { Image } from "astro:assets"
+
+const { title, description } = Astro.props
+---
+
+<section>
+	<Image
+		src={heroImg}
+		alt="Overhead view of team collaborating around wooden table with laptops, tablets, notebooks and coffee."
+	/>
+	<div class="bg-primary relative overflow-hidden">
+		<div class="relative z-10 px-6">
+			<div class="flex flex-col items-center py-20">
+				<h1 class="heading-1 text-center text-balance text-white mb-4">
+					About us
+				</h1>
+				<p class="text-center text-white body-text">
+					Founded in 2010, we are a creative agency that produces lasting
+					results for our clients. We've partnered with many startups,
+					corporations, and nonprofits alike to craft designs that make real
+					impact. We're always looking forward to creating brands, products, and
+					digital experiences that connect with our clients' audiences.
+				</p>
+			</div>
+		</div>
+		<Image
+			src={bgPattern}
+			alt=""
+			class="absolute -top-52 rotate-180 -right-12"
+		/>
+	</div>
+</section>
