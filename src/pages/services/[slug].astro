@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro"
+
+export function getStaticPaths() {
+	return [
+		{ params: { slug: "web-design" }, props: { title: "Web Design" } },
+		{ params: { slug: "app-design" }, props: { title: "App Design" } },
+		{ params: { slug: "graphic-design" }, props: { title: "Graphic Design" } }
+	]
+}
+
+const { title } = Astro.props
+---
+
+<Layout>
+	<h1>{title}</h1>
+</Layout>
