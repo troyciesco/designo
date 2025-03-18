@@ -1,10 +1,76 @@
 ---
-import Hero from "@/components/Hero.astro"
 import Layout from "../layouts/Layout.astro"
-import ProjectCards from "@/components/ProjectCards.astro"
-import Qualities from "@/components/Qualities.astro"
+import mapAustralia from "@/assets/image-map-australia.png"
+import mapCanada from "@/assets/image-map-canada.png"
+import mapUk from "@/assets/image-map-uk.png"
+import { Image } from "astro:assets"
+const locations = [
+	{
+		country: "Canada",
+		name: "Designo Central Office",
+		address: {
+			street: "3886 Wellington Street",
+			city: "Toronto",
+			state: "Ontario",
+			postcode: "M9C 3J5"
+		},
+		contact: {
+			phone: "+1 253-863-8967",
+			email: "contact@designo.co"
+		},
+		image: mapCanada
+	},
+	{
+		country: "Australia",
+		name: "Designo AU Office",
+		address: {
+			street: "19 Balonne Street",
+			city: "New South Wales",
+			postcode: "2443"
+		},
+		contact: {
+			phone: "(02) 6720 9092",
+			email: "contact@designo.au"
+		},
+		image: mapAustralia
+	},
+	{
+		country: "United Kingdom",
+		name: "Designo UK Office",
+		address: {
+			street: "13 Colorado Way",
+			city: "Rhyd-y-fro",
+			postcode: "SA8 9GA"
+		},
+		contact: {
+			phone: "078 3115 1400",
+			email: "contact@designo.uk"
+		},
+		image: mapUk
+	}
+]
 ---
 
 <Layout>
-	<h1>Locations</h1>
+	<h1 class="sr-only">Locations</h1>
+	{
+		locations.map((location) => (
+			<div>
+				<Image
+					src={location.image}
+					alt={`map of ${location.country} office location`}
+				/>
+				<h2>{location.country}</h2>
+				<address class="flex flex-col items-center not-italic mb-10 opacity-75">
+					<span class="font-bold">{location.name}</span>
+					<span>{location.address.street}</span>
+					<span>
+						{location.address.city}
+						{location.address.state ? ` ${location.address.state}` : ""}{" "}
+						{location.address.postcode}
+					</span>
+				</address>
+			</div>
+		))
+	}
 </Layout>
