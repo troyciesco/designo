@@ -3,8 +3,25 @@ import Hero from "@/components/Hero.astro"
 import Layout from "../layouts/Layout.astro"
 import ProjectCards from "@/components/ProjectCards.astro"
 import Qualities from "@/components/Qualities.astro"
+import bgPattern from "@/assets/bg-pattern-hero-home.svg"
+import { Image } from "astro:assets"
 ---
 
 <Layout>
-	<h1>Contact</h1>
+	<section class="bg-primary relative overflow-hidden">
+		<div class="relative z-10 px-6">
+			<div class="flex flex-col items-center py-24">
+				<h1 class="heading-1 text-center text-balance text-white mb-4">
+					Contact Us
+				</h1>
+				<p class="text-center text-white body-text">
+					Ready to take it to the next level? Let's talk about your project or
+					idea and find out how we can help your business grow. If you are
+					looking for unique digital experiences that's relatable to your users,
+					drop us a line.
+				</p>
+			</div>
+		</div>
+		<Image src={bgPattern} alt="" class="absolute top-0 -right-12" />
+	</section>
 </Layout>
