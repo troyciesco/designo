@@ -1,0 +1,27 @@
+---
+const { type = "text", name, placeholder } = Astro.props
+---
+
+{
+	type === "textarea" ? (
+		<label>
+			<span class="sr-only">{name}</span>
+			<textarea
+				class="border-b w-full p-3 text-white/70 active:text-white focus:text-white"
+				name={name}
+				placeholder={placeholder}
+				rows="3"
+			/>
+		</label>
+	) : (
+		<label>
+			<span class="sr-only">{name}</span>
+			<input
+				class="border-b w-full p-3 text-white/70 active:text-white focus:text-white"
+				type={type}
+				name={name}
+				placeholder={placeholder}
+			/>
+		</label>
+	)
+}
